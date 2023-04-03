@@ -22,8 +22,20 @@ func main() {
 
 	serviceClient := ec2.New(session)
 
+	instanceID, err := createEC2Instance(serviceClient)
+	if err != nil {
+		log.Fatalf("failed to create an instance %v", err)
+	}
+
+	err = waitUntilInstanceRunning(serviceClient, instanceID)
+	if err != nil {
+		log.Fatalf("failed to run an EC2 instance %v", err)
+	}
+}
+
+func createEC2Instance(serviceClient *ec2.EC2) (string, error) {
 	parameters := &ec2.RunInstancesInput{
-		ImageId:      aws.String("image-id"),
+		ImageId:      aws.String("ami-05f96ebf267205daa"),
 		InstanceType: aws.String("t2.micro"),
 		MinCount:     aws.Int64(1),
 		MaxCount:     aws.Int64(1),
@@ -37,4 +49,21 @@ func main() {
 
 	instanceID := *createInstance.Instances[0].InstanceId
 	fmt.Printf("Created an EC2 instance and here is it's ID: %v\n", instanceID)
+
+	return instanceID, nil
+}
+
+func waitUntilInstanceRunning(svc *ec2.EC2, instanceID string) error {
+	input := &ec2.DescribeInstancesInput{
+		InstanceIds: []*string{aws.String(instanceID)},
+	}
+
+	err := svc.WaitUntilInstanceRunning(input)
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("EC2 instance with ID %s is running\n", instanceID)
+
+	return nil
 }
