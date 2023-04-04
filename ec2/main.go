@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
@@ -30,6 +31,13 @@ func main() {
 	err = waitUntilInstanceRunning(serviceClient, instanceID)
 	if err != nil {
 		log.Fatalf("failed to run an EC2 instance %v", err)
+	}
+
+	time.Sleep(10 * time.Second)
+
+	err = terminateEC2Instance(serviceClient, instanceID)
+	if err != nil {
+		log.Fatalf("failed to terminate an EC2 instance %v", err)
 	}
 }
 
@@ -64,6 +72,21 @@ func waitUntilInstanceRunning(svc *ec2.EC2, instanceID string) error {
 	}
 
 	fmt.Printf("EC2 instance with ID %s is running\n", instanceID)
+
+	return nil
+}
+
+func terminateEC2Instance(svc *ec2.EC2, instanceID string) error {
+	input := &ec2.TerminateInstancesInput{
+		InstanceIds: []*string{aws.String(instanceID)},
+	}
+
+	_, err := svc.TerminateInstances(input)
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("EC2 instance with an ID %s is terminated\n", instanceID)
 
 	return nil
 }
