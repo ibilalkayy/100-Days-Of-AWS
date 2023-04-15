@@ -21,3 +21,13 @@ data "aws_instance" "example_running" {
 output "instance_id" {
     value = data.aws_instance.example_running.id
 }
+
+resource "null_resource" "delete_instances" {
+    triggers = {
+        instance_id = "${aws_instance.example.id}"
+    }
+
+    provisioner "local-exec" {
+        command = "aws ec2 terminate-instances --instance-ids ${aws_instance.example.id}"
+    }
+}
