@@ -36,11 +36,11 @@ Follow these steps to deploy the serverless application:
 
 2. Build the serverless application using the SAM CLI:
 
-    sam build
+       sam build
 
 3. Deploy the serverless application using the SAM CLI with guided prompts:
 
-    sam deploy --guided
+       sam deploy --guided
 
 Provide the necessary information when prompted, such as the stack name, AWS region, and whether to allow or disallow rollback on failure.
 
