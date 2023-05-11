@@ -8,7 +8,7 @@ To get started with these projects, you will need an AWS account and some basic 
 
 # Contributing
 
-If you have an AWS project that you would like to share, feel free to contribute to this repository by creating a pull request. Please make sure that your project meets the following criteria:
+If you have an AWS project that you would like to share, feel free to [contribute](CONTRIBUTING.md) to this repository by creating a pull request. Please make sure that your project meets the following criteria:
 
 - The project showcases a specific AWS service or feature
 - The project includes clear documentation on how to set up and run the project
