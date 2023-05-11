@@ -1,6 +1,6 @@
 # AWS Projects Repository
 
-Welcome to my AWS Projects Repository! In this repository, I will be sharing a collection of small projects that showcase the different AWS services and their capabilities. Each project will be a separate folder in the repository and contain all the necessary files, including code, configuration files, and documentation.
+Welcome to my AWS Projects Repository! In this repository, I will be sharing a collection of projects that showcase the different AWS services and their capabilities. Each project will be a separate folder in the repository and contain all the necessary files, including code, configuration files, and documentation.
 
 # Getting Started
 
