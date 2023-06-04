@@ -5,6 +5,7 @@ go 1.19
 require github.com/aws/aws-sdk-go-v2/service/s3 v1.33.1
 
 require (
+	github.com/aws/aws-lambda-go v1.41.0 // indirect
 	github.com/aws/aws-sdk-go v1.44.233 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.18.0 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.4.10 // indirect
