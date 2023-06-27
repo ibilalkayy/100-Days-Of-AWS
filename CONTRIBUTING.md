@@ -66,4 +66,4 @@ We appreciate your interest in contributing to the AWS Projects repository! Your
 
 ## **Contact**
 
-If you have any questions or need further assistance, feel free to reach out. You can contact the project owner or maintainers through the GitHub repository's issue tracker.
+If you have any questions or need further assistance, feel free to reach out. You can contact me through the GitHub repository's issue tracker.
