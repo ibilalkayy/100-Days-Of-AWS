@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .post {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var currentDateTimeSpan = document.getElementById('currentDateTime');
+            var date = new Date();
+            currentDateTimeSpan.textContent = date.toString();
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Welcome to My Blog!</h1>
+    <div class="post">
+        <h2>Post 1 Title</h2>
+        <p>This is the content of the first blog post. Here you can share your thoughts, ideas, or experiences.</p>
+    </div>
+    <div class="post">
+        <h2>Post 2 Title</h2>
+        <p>This is the content of the second blog post. Keep writing and sharing your ideas with the world!</p>
+    </div>
+    <div>
+        <p id="currentDateTime"></p>
+    </div>
+</body>
+
+</html>
